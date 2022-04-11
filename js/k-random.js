@@ -9,6 +9,7 @@ kApp.random = {
 	},
 	inArray: function(arr) {
 		var i = kApp.random.intBetween(0, arr.length - 1);
+		//kApp.log(["12:",i]);
 		return arr[i];
 	},
 	rPtInRrect: function(r) {

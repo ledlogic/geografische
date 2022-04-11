@@ -170,10 +170,13 @@ kApp.render = {
 	},
 	
 	worldZones: function() {
-		var zones = kApp.world.settings.zones;
-		for (var i=0; i<zones.length; i++) {
-			var wz = zones[i];
-			kApp.render.worldZone(wz);
+		var coordZones = kApp.world.settings.coordZones;
+		var coordMax = kApp.world.settings.coordMax;
+		for (var x = 0; x < coordMax.x; x++) {
+			for (var y = 0; y < coordMax.y; y++) {
+				var coordZone = coordZones[x][y];
+				kApp.render.worldZone(coordZone);
+			}
 		}
 	},
 	
@@ -183,9 +186,7 @@ kApp.render = {
 		var top = wz.crect.yMin;
 		var height = wz.crect.height;
 		smooth();
-		
-		var t = wz.type;	
-
+		var t = wz.zoneType;	
 		stroke(t.color.r, t.color.g, t.color.b);
 		fill(t.color.r, t.color.g, t.color.b);
 		rect(left, top, width, height);
